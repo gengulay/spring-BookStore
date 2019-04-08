@@ -1,0 +1,63 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="common-header">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gen's BookStore</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+
+<!-- Custom styles for this template -->
+<link href="css/navbar.css" rel="stylesheet" />
+<link rel="icon" href="/images/apple-touch-icon.png" />
+</head>
+<body>
+	<div th:fragment="navbar">
+		<div class="page-top"></div>
+		<nav
+			class="navbar navbar-default navbar-inverse justify-content-between">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Gen BookStore</a>
+				</div>
+				<div id="navbar">
+					<ul class="nav navbar-nav navbar-left">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspop="true"
+							aria-expanded="false">BOOKS<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="active"><a href="#">Browse Bookshelf</a></li>
+								<li><a href="#">Store Hours and Direction</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul></li>
+						<li><form class="form-inline my-2 my-lg-0">
+								<input class="form-control mr-sm-2" type="search"
+									placeholder="Search" aria-label="Search"/>
+								<button class="btn btn-outline-success my-2 my-sm-0"
+									type="submit">Searchs</button>
+							</form></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">SHOPPING CART</a></li>
+						<li><a sec:authorize="isAnonymous()" th:href="@{/login}">MY
+								ACCOUNT</a></li>
+						<li><a sec:authorize="isAuthenticated()"
+							th:href="@{/myProfile}">MY ACCOUNT</a></li>
+						<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">LOGOUT</a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div th:fragment="body-bottom-scripts">
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</div>
+</body>
+</html>
