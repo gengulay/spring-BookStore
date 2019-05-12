@@ -15,12 +15,12 @@
 				</h2>
 			</div>
 			<div class="col-xs-4">
-				<img src="/images/logo.png" class="img-responsive" />
+				<img src="/image/logo.png" class="img-responsive" />
 			</div>
 		</div>
 		<hr
 			style="position: absolute; width: 100%; height: 6px; background-color: #333; z-index: -1; margin-top: -80px;" />
-		<img class="img-responsive" src="/images/wood.jpg"
+		<img class="img-responsive" src="/image/wood.png"
 			style="margin-top: -75px;" />
 
 		<div class="row" style="margin-top: 60px;">
@@ -250,7 +250,7 @@
 											</div>
 											<div class="row">
 												<div class="col-xs-12">
-													<img src="/images/creditcard.png" class="img-responsive" /><br />
+													<img src="/image/creditcard.png" class="img-responsive" /><br />
 													<div class="form-group">
 														<label for="cardType">* Select Card Type:</label> <select
 															class="form-control" id="cardType" th:name="type"
@@ -345,7 +345,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- tab 3 -->
 
 					<!-- Shipping Information -->
 					<div class="tab-pane fade" id="tab-4"
@@ -358,11 +357,11 @@
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item active"><a
 											th:href="@{/listOfShippingAddresses}"
-											th:style="${listOfShippingAddresses}? 'color:red'">List
-												of Shipping Addresses</a></li>
+											th:style="${listOfShippingAddresses}? 'color:red'">List of
+												Shipping Addresses</a></li>
 										<li class="breadcrumb-item active"><a
-											th:href="@{/addNewShippingAddress}"
-											th:style="${addNewShippingAddress}? 'color:red'">Add(Update)
+											th:href="@{/addNewCreditCard}"
+											th:style="${addNewCreditCard}? 'color:red'">Add(Update)
 												Shipping Address</a></li>
 									</ol>
 
@@ -378,12 +377,10 @@
 												</thead>
 												<tbody>
 													<tr th:each="userShipping : ${userShippingList}">
-														<td><input type="radio"
-															name="defaultShippingAddressId"
+														<td><input type="radio" name="defaultShippingAddressId"
 															th:value="${userShipping.id}"
 															th:checked="${userShipping.userShippingDefault}" /><span>default</span></td>
-														<td
-															th:text="${userShipping.userShippingStreet1}+', '+
+														<td th:text="${userShipping.userShippingStreet1}+', '+
 														${userShipping.userShippingCity}+', '+${userShipping.userShippingState}"></td>
 														<td><a
 															th:href="@{/updateUserShipping(id=${userShipping.id})}"><i
@@ -402,8 +399,7 @@
 											<div class="bg-info" th:if="${updateUserShippingInfo}">User
 												info updated.</div>
 
-											<input hidden="hidden" name="id"
-												th:value="${userShipping.id}" />
+											<input hidden="hidden" name="id" th:value="${userShipping.id}" />
 
 											<!-- Shipping Address -->
 											<hr />
@@ -415,13 +411,13 @@
 													class="form-control" id="shippingName"
 													placeholder="Receiver Name" th:name="userShippingName"
 													required="required"
-													th:value="${userShipping.userShippingName}" />
+													th:value="${userBilling.userShippingName}" />
 											</div>
 											<div class="form-group">
 												<label for="shippingAddress">* Street Address</label> <input
 													type="text" class="form-control" id="shippingAddress"
-													placeholder="Street Address 1"
-													th:name="userShippingStreet1" required="required"
+													placeholder="Street Address 1" th:name="userShippingStreet1"
+													required="required"
 													th:value="${userShipping.userShippingStreet1}" /> <input
 													type="text" class="form-control"
 													placeholder="Street Address 2" th:name="userShppingStreet2"
@@ -431,11 +427,10 @@
 											<div class="row">
 												<div class="col-xs-4">
 													<div class="form-group">
-														<label for="shippingCity">* City</label> <input
-															type="text" class="form-control" id="shippingCity"
-															placeholder="Shipping
-															City"
-															th:name="userShippingCity" required="required"
+														<label for="shippingCity">* City</label> <input type="text"
+															class="form-control" id=""shippingCity""
+															placeholder=""Shipping City"" th:name="userShippingCity"
+															required="required"
 															th:value="${userShipping.userShippingCity}" />
 													</div>
 												</div>
@@ -449,7 +444,7 @@
 															<option value="" disabled="disabled">Please
 																select an option</option>
 															<option th:each="state : ${stateList}" th:text="${state}"
-																th:selected="(${userShipping.userShippingState}==${state})"></option>
+																th:selected="(${userBilling.userBillingState}==${state})"></option>
 														</select>
 													</div>
 												</div>
@@ -459,7 +454,7 @@
 															type="text" class="form-control" id="shippingZipcode"
 															placeholder="Shipping Zipcode"
 															th:name="userShippingZipcode" required="required"
-															th:value="${userShipping.userShippingZipcode}" />
+															th:value="${userShipping.usershippingZipcode}" />
 													</div>
 												</div>
 											</div>
@@ -473,7 +468,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- shipping information tab 4 -->
+
 				</div>
 			</div>
 		</div>
